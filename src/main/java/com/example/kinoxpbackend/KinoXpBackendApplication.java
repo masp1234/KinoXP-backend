@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class KinoXpBackendApplication {
@@ -22,7 +23,7 @@ public class KinoXpBackendApplication {
 
     @Bean
     public CommandLineRunner importData( //repositories
-                                         UserRepository userRepository
+                                         UserRepository userRepository,
                                          FilmRepository filmRepository,
                                          ActorRepository actorRepository
 
