@@ -1,5 +1,6 @@
 package com.example.kinoxpbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -42,4 +43,8 @@ public class Film {
             inverseJoinColumns = {@JoinColumn(name = "actor_id")}
     )
     private List<Actor> actors;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "film")
+    private List<FilmShowing> filmShowing;
 }
