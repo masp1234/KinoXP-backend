@@ -17,7 +17,6 @@ UserService userService;
     @PostMapping("add/user")
     public void addUser(@RequestParam("name") String name,@RequestParam("username") String username,@RequestParam("password") String password,@RequestParam("type") String type){
         User user = new User(name, username, password, type);
-        System.out.println(user);
         userService.saveUser(user);
     }
 }
