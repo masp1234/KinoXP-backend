@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name="FILMSHOWING")
 public class FilmShowing {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="film_showing_id")
