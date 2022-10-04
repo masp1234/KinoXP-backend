@@ -1,5 +1,7 @@
 package com.example.kinoxpbackend;
 
+import com.example.kinoxpbackend.models.User;
+import com.example.kinoxpbackend.repositories.UserRepository;
 import com.example.kinoxpbackend.models.Actor;
 import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.repositories.ActorRepository;
@@ -10,7 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @SpringBootApplication
 public class KinoXpBackendApplication {
@@ -21,12 +22,16 @@ public class KinoXpBackendApplication {
 
     @Bean
     public CommandLineRunner importData( //repositories
+                                         UserRepository userRepository
                                          FilmRepository filmRepository,
                                          ActorRepository actorRepository
 
             ) {
 
         return (args) -> {
+
+            User user = new User("Daniel", "Danieluser","Danielersej123","admin");
+            userRepository.save(user);
             // whatever du har lyst til
 
             Film film1 = new Film();
