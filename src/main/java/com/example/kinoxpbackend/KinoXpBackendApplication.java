@@ -1,5 +1,7 @@
 package com.example.kinoxpbackend;
 
+import com.example.kinoxpbackend.models.User;
+import com.example.kinoxpbackend.repositories.UserRepository;
 import com.example.kinoxpbackend.models.Actor;
 import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.models.FilmShowing;
@@ -23,6 +25,7 @@ public class KinoXpBackendApplication {
 
     @Bean
     public CommandLineRunner importData( //repositories
+                                         UserRepository userRepository,
                                          FilmRepository filmRepository,
                                          ActorRepository actorRepository,
                                          FilmShowingRepository filmShowingRepository
@@ -30,6 +33,9 @@ public class KinoXpBackendApplication {
             ) {
 
         return (args) -> {
+
+            User user = new User("Daniel", "Danieluser","Danielersej123","admin");
+            userRepository.save(user);
             // whatever du har lyst til
 
             Film film1 = new Film();
@@ -38,6 +44,13 @@ public class KinoXpBackendApplication {
             film1.setMinimumAge(12);
             film1.setDescription("En film om en båd");
             film1.setLengthInMinutes(140);
+
+            Film film2 = new Film();
+            film2.setTitle("Avatar");
+            film2.setGenre("Eventyr");
+            film2.setMinimumAge(12);
+            film2.setDescription("En film om en anden planet");
+            film2.setLengthInMinutes(160);
 
 
 
@@ -50,6 +63,7 @@ public class KinoXpBackendApplication {
             actorRepository.save(actor);
 
             film1.setActors(Arrays.asList(actor));
+            film2.setActors(Arrays.asList(actor));
             filmRepository.save(film1);
 
             FilmShowing filmShowing= new FilmShowing();
@@ -59,6 +73,8 @@ public class KinoXpBackendApplication {
             filmShowing.setFilm(film1);
             filmShowingRepository.save(filmShowing);
 
+
+            filmRepository.save(film2);
 
 
 
