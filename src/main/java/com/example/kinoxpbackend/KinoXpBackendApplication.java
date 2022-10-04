@@ -2,8 +2,10 @@ package com.example.kinoxpbackend;
 
 import com.example.kinoxpbackend.models.Actor;
 import com.example.kinoxpbackend.models.Film;
+import com.example.kinoxpbackend.models.FilmShowing;
 import com.example.kinoxpbackend.repositories.ActorRepository;
 import com.example.kinoxpbackend.repositories.FilmRepository;
+import com.example.kinoxpbackend.repositories.FilmShowingRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,7 +24,8 @@ public class KinoXpBackendApplication {
     @Bean
     public CommandLineRunner importData( //repositories
                                          FilmRepository filmRepository,
-                                         ActorRepository actorRepository
+                                         ActorRepository actorRepository,
+                                         FilmShowingRepository filmShowingRepository
 
             ) {
 
@@ -48,6 +51,14 @@ public class KinoXpBackendApplication {
 
             film1.setActors(Arrays.asList(actor));
             filmRepository.save(film1);
+
+            FilmShowing filmShowing= new FilmShowing();
+            filmShowing.setLength(59);
+            filmShowing.setRoom("12");
+            filmShowing.setPrice(80);
+            filmShowing.setFilm(film1);
+            filmShowingRepository.save(filmShowing);
+
 
 
 
