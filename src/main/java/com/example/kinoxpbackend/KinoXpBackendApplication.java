@@ -20,7 +20,6 @@ public class KinoXpBackendApplication {
             ) {
 
         return (args) -> {
-
             // whatever du har lyst til
 
         };
