@@ -5,6 +5,7 @@ import com.example.kinoxpbackend.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 public class UserController {
 UserService userService;
 
