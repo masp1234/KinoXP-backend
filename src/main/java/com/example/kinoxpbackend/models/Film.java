@@ -36,6 +36,9 @@ public class Film {
     @Column(name = "film_description")
     private String description;
 
+    @Column(name = "actors")
+    private String actors;
+
     /*
     @JsonManagedReference
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
