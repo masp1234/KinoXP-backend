@@ -32,4 +32,9 @@ public class FilmController {
 
         return new ResponseEntity<>(films, HttpStatus.OK);
     }
+
+    @PostMapping("/add-film")
+    public void addFilm(@RequestBody Film film) {
+        filmService.add(film);
+    }
 }

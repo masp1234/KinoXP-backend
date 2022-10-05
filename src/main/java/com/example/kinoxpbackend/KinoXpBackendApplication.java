@@ -61,10 +61,15 @@ public class KinoXpBackendApplication {
             actor.setLastName("fdsdfsdf");
             actor.setAge(20);
             actorRepository.save(actor);
-
+        /*
             film1.setActors(Arrays.asList(actor));
             film2.setActors(Arrays.asList(actor));
+
+         */
+
             filmRepository.save(film1);
+
+
 
             FilmShowing filmShowing= new FilmShowing();
             filmShowing.setLength(59);

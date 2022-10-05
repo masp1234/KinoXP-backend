@@ -44,7 +44,10 @@ public class Film {
     )
     private List<Actor> actors;
 
-    @JsonBackReference
+
+    @JsonManagedReference
     @OneToMany(mappedBy = "film")
     private List<FilmShowing> filmShowing;
+
+
 }
