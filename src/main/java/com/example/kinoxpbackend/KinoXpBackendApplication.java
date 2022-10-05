@@ -67,16 +67,25 @@ public class KinoXpBackendApplication {
             film1.setActors(Arrays.asList(actor));
             film2.setActors(Arrays.asList(actor));
             filmRepository.save(film1);
+            filmRepository.save(film2);
 
             FilmShowing filmShowing= new FilmShowing();
             filmShowing.setLength(59);
-            filmShowing.setRoom("12");
+            filmShowing.setRoom("2");
             filmShowing.setPrice(80);
             filmShowing.setFilm(film1);
             filmShowingRepository.save(filmShowing);
 
 
-            filmRepository.save(film2);
+            FilmShowing filmShowing2 = new FilmShowing();
+            filmShowing2.setFilm(film2);
+            filmShowing2.setLength(170);
+            filmShowing2.setPrice(80);
+            filmShowing2.setRoom("1");
+
+            filmShowingRepository.save(filmShowing2);
+
+
 
 
 
