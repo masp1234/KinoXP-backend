@@ -13,9 +13,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 @SpringBootApplication
 public class KinoXpBackendApplication {
 
@@ -41,14 +38,14 @@ public class KinoXpBackendApplication {
             Film film1 = new Film();
             film1.setTitle("Titatic");
             film1.setGenre("Drama");
-            film1.setMinimumAge(12);
+            film1.setRated(12);
             film1.setDescription("En film om en båd");
             film1.setLengthInMinutes(140);
 
             Film film2 = new Film();
             film2.setTitle("Avatar");
             film2.setGenre("Eventyr");
-            film2.setMinimumAge(12);
+            film2.setRated(12);
             film2.setDescription("En film om en anden planet");
             film2.setLengthInMinutes(160);
 
