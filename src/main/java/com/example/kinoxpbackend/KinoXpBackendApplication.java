@@ -43,6 +43,7 @@ public class KinoXpBackendApplication {
             film1.setGenre("Drama");
             film1.setMinimumAge(12);
             film1.setDescription("En film om en båd");
+            film1.setPoster("https://img.fruugo.com/product/6/31/14366316_max.jpg");
             film1.setLengthInMinutes(140);
 
             Film film2 = new Film();
@@ -50,6 +51,7 @@ public class KinoXpBackendApplication {
             film2.setGenre("Eventyr");
             film2.setMinimumAge(12);
             film2.setDescription("En film om en anden planet");
+            film2.setPoster("https://prod.cdn.bbaws.net/TDC_Blockbuster_-_Production/1016/604/FO-0371_po-reg-medium_orig.jpg");
             film2.setLengthInMinutes(160);
 
 
