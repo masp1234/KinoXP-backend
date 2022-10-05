@@ -6,19 +6,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FilmShowingService {
 
-    private final FilmShowingRepository filmShowingRepository;
+    private FilmShowingRepository filmShowingRepository;
 
     public FilmShowingService(FilmShowingRepository filmShowingRepository) {
         this.filmShowingRepository = filmShowingRepository;
     }
-    public Iterable<FilmShowing> showAll(){
-        List<FilmShowing> showinglist= new ArrayList<>();
-        Iterable<FilmShowing> showingsIteam= filmShowingRepository.findAll();
-        showingsIteam.forEach(showinglist::add);
-        return showinglist;
+
+    public Iterable<FilmShowing> findAll() {
+        return filmShowingRepository.findAll();
+    }
+
+    public Optional<FilmShowing> find(Long id) {
+        return filmShowingRepository.findById(id);
     }
 }
