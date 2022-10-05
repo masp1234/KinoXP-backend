@@ -36,6 +36,7 @@ public class Film {
     @Column(name = "film_description")
     private String description;
 
+    /*
     @JsonManagedReference
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "film_actors",
@@ -43,6 +44,8 @@ public class Film {
             inverseJoinColumns = {@JoinColumn(name = "actor_id")}
     )
     private List<Actor> actors;
+
+     */
 
 
     @JsonManagedReference
