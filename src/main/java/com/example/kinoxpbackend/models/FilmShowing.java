@@ -31,7 +31,6 @@ public class FilmShowing {
     @JoinColumn(name= "film_id", nullable = false)
     private Film film;
 
-
     @Column(name = "ROOM")
     private String room;
 
