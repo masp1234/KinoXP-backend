@@ -21,18 +21,20 @@ public class FilmController {
         this.filmService = filmService;
     }
 
-    //Get by id
     @GetMapping("/{id}")
     public ResponseEntity<Film> getFilmById(@PathVariable("id") Long id) {
         Film film = filmService.getFilmById(id);
         return new ResponseEntity<>(film, HttpStatus.OK);
     }
-    //Get all films
     @GetMapping("/all")
     public ResponseEntity<List<Film>> getAllFilms() {
         List<Film> films = filmService.findAllFilms();
 
         return new ResponseEntity<>(films, HttpStatus.OK);
     }
-    
+
+    @PostMapping("/add-film")
+    public void addFilm(@RequestBody Film film) {
+        filmService.add(film);
+    }
 }

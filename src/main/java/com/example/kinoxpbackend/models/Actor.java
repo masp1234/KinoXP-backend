@@ -1,4 +1,4 @@
-package com.example.kinoxpbackend.models;
+/*package com.example.kinoxpbackend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
@@ -32,7 +32,16 @@ public class Actor {
     @Column(name = "actor_age")
     private int age;
 
+/*
     @JsonBackReference
     @ManyToMany(mappedBy = "actors")
     private List<Film> films;
+
+
+
+
+
 }
+
+ */
+
