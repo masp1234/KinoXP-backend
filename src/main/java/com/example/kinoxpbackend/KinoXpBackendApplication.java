@@ -34,7 +34,7 @@ public class KinoXpBackendApplication {
 
         return (args) -> {
 
-            User user = new User("Daniel", "Danieluser","Danielersej123","admin");
+            User user = new User("123", "123","123","admin");
             userRepository.save(user);
             // whatever du har lyst til
 
