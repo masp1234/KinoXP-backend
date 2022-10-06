@@ -1,14 +1,11 @@
 package com.example.kinoxpbackend.controllers;
 
+import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.models.FilmShowing;
 import com.example.kinoxpbackend.services.FilmShowingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class FilmShowController {
     // Virker hvis vi ændre på alle værdier
     @PatchMapping("/oneFilmShowing/{id}")
     public ResponseEntity<FilmShowing> update(@PathVariable("id") Long id, @RequestParam("LENGTH") int length,
-                                              @RequestParam("film_id")Film film,
+                                              @RequestParam("film_id") Film film,
                                               @RequestParam("ROOM") String room, @RequestParam("PRICE") double price){
         FilmShowing filmShowing = new FilmShowing();
         filmShowing.setFilm(film);
