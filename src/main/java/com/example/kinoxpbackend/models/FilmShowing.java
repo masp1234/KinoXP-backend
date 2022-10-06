@@ -1,4 +1,5 @@
 package com.example.kinoxpbackend.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,10 +26,13 @@ public class FilmShowing {
     @Column(name="LENGTH")
     private int length;
 
-    @JsonManagedReference
+    //@JsonManagedReference
+    //@JsonBackReference
     @ManyToOne()
     @JoinColumn(name= "film_id", nullable = false)
     private Film film;
+
+
 
 
     @Column(name = "ROOM")
