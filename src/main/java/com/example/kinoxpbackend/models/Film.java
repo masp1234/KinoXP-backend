@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 
 @Table(name = "film")
 public class Film {
@@ -44,6 +45,19 @@ public class Film {
     @Column(name = "actors")
     private String actors;
 
+    public boolean equals(Object o) {
+        Film otherFilm = (Film) o;
+        return
+                this.id == otherFilm.getId()
+                && this.title.equals(otherFilm.getTitle())
+                && this.genre.equals(otherFilm.genre)
+                && this.rated.equals(otherFilm.rated)
+                && this.lengthInMinutes == otherFilm.getLengthInMinutes()
+                && this.description.equals(otherFilm.getDescription())
+                && this.poster.equals(otherFilm.getPoster())
+                && this.actors.equals(otherFilm.getActors());
+
+    }
     /*
 >>>>>>> testafpost
     @JsonManagedReference
@@ -60,6 +74,7 @@ public class Film {
     @JsonBackReference
     //@JsonManagedReference
     @OneToMany(mappedBy = "film")
+    @ToString.Exclude
     private List<FilmShowing> filmShowing;
 
 
