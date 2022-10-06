@@ -26,8 +26,8 @@ public class FilmShowing {
     @Column(name="LENGTH")
     private int length;
 
-
-    @JsonBackReference
+    //@JsonManagedReference
+    //@JsonBackReference
     @ManyToOne()
     @JoinColumn(name= "film_id", nullable = false)
     private Film film;

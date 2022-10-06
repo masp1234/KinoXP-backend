@@ -5,7 +5,6 @@ import com.example.kinoxpbackend.repositories.UserRepository;
 
 import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.models.FilmShowing;
-import com.example.kinoxpbackend.repositories.ActorRepository;
 import com.example.kinoxpbackend.repositories.FilmRepository;
 import com.example.kinoxpbackend.repositories.FilmShowingRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -24,14 +23,13 @@ public class KinoXpBackendApplication {
     public CommandLineRunner importData( //repositories
                                          UserRepository userRepository,
                                          FilmRepository filmRepository,
-                                         ActorRepository actorRepository,
                                          FilmShowingRepository filmShowingRepository
 
             ) {
 
         return (args) -> {
 
-            User user = new User("Daniel", "Danieluser","Danielersej123","admin");
+            User user = new User("123", "123","123","admin");
             userRepository.save(user);
             // whatever du har lyst til
 
