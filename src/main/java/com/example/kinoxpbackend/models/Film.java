@@ -27,7 +27,7 @@ public class Film {
     private String genre;
 
     @Column(name = "film_rated")
-    private int rated;
+    private String rated;
 
     @Column(name = "film_length_in_minutes")
     private int lengthInMinutes;

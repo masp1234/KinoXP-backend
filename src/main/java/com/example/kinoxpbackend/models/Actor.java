@@ -1,4 +1,4 @@
-package com.example.kinoxpbackend.models;
+/*package com.example.kinoxpbackend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
@@ -37,8 +37,11 @@ public class Actor {
     @ManyToMany(mappedBy = "actors")
     private List<Film> films;
 
- */
+
 
 
 
 }
+
+ */
+
