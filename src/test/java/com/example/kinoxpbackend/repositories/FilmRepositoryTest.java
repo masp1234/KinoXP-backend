@@ -22,11 +22,12 @@ class FilmRepositoryTest {
         film1.setRated("Pg-13");
         film1.setDescription("En film om en båd");
         film1.setPoster("https://img.fruugo.com/product/6/31/14366316_max.jpg");
+        film1.setActors("Nogle actors");
         film1.setLengthInMinutes(140);
 
         filmRepository.save(film1);
 
-        Film foundFilm = filmRepository.findById(2L).get();
+        Film foundFilm = filmRepository.findById(film1.getId()).get();
 
         assertEquals(foundFilm, film1, "De skulle meget gerne være ens");
     }
