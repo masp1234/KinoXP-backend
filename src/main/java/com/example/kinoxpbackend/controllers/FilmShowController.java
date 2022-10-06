@@ -44,8 +44,9 @@ public class FilmShowController {
     }
 
     @PostMapping(value = "/addFilmShowing")
-    public void addFilmShowing(@RequestBody FilmShowing filmShowing) {
+    public ResponseEntity<FilmShowing> addFilmShowing(@RequestBody FilmShowing filmShowing) {
         filmShowingService.add(filmShowing);
+        return new ResponseEntity<>(filmShowing, HttpStatus.OK);
     }
 
     /*
