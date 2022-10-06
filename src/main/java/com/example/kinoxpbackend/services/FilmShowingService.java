@@ -28,4 +28,8 @@ public class FilmShowingService {
     public FilmShowing update(Long id, FilmShowing filmShowing) {
         return filmShowingRepository.save(filmShowing);
     }
+
+    public void add(FilmShowing filmShowing) {
+        filmShowingRepository.save(filmShowing);
+    }
 }

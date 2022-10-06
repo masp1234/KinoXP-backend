@@ -43,6 +43,10 @@ public class FilmShowController {
         return ResponseEntity.ok().body(filmShowingService.update(id,filmShowing));
     }
 
+    @PostMapping(value = "/addFilmShowing")
+    public void addFilmShowing(@RequestBody FilmShowing filmShowing) {
+        filmShowingService.add(filmShowing);
+    }
 
     /*
     @PutMapping("/oneFilmShowing/{id}")
