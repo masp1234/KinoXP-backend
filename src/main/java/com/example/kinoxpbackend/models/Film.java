@@ -1,5 +1,6 @@
 package com.example.kinoxpbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -56,7 +57,8 @@ public class Film {
      */
 
 
-    @JsonManagedReference
+    @JsonBackReference
+    //@JsonManagedReference
     @OneToMany(mappedBy = "film")
     private List<FilmShowing> filmShowing;
 
