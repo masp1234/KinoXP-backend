@@ -22,7 +22,8 @@ public class Film {
     @Column(name = "film_id")
     private Long id;
 
-    @Column(name = "film_title")
+
+    @Column(name = "film_title", unique = true)
     private String title;
 
     @Column(name = "film_genre")
