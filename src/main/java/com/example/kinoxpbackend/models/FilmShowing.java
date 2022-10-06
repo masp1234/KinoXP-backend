@@ -18,17 +18,16 @@ public class FilmShowing {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="film_showing_id")
+    @Column(name = "film_showing_id")
     private Long filmShowingId;
 
 
-
-    @Column(name="LENGTH")
+    @Column(name = "LENGTH")
     private int length;
 
     @JsonManagedReference
     @ManyToOne()
-    @JoinColumn(name= "film_id", nullable = false)
+    @JoinColumn(name = "film_id", nullable = false)
     private Film film;
 
     @Column(name = "ROOM")
@@ -36,9 +35,6 @@ public class FilmShowing {
 
     @Column(name = "PRICE")
     private double price;
-
-
-
 
 
 }
