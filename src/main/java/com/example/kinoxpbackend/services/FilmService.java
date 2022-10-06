@@ -23,4 +23,8 @@ public class FilmService {
     public List<Film> findAllFilms() {
         return filmRepository.findAll();
     }
+
+    public void add(Film film) {
+        filmRepository.save(film);
+    }
 }
