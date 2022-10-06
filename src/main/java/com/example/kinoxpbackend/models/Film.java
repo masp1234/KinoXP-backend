@@ -1,6 +1,5 @@
 package com.example.kinoxpbackend.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -27,8 +26,8 @@ public class Film {
     @Column(name = "film_genre")
     private String genre;
 
-    @Column(name = "film_minimum_age")
-    private int minimumAge;
+    @Column(name = "film_rated")
+    private String rated;
 
     @Column(name = "film_length_in_minutes")
     private int lengthInMinutes;
@@ -36,9 +35,16 @@ public class Film {
     @Column(name = "film_description")
     private String description;
 
+
     @Column(name = "film_poster")
     private String poster;
 
+
+    @Column(name = "actors")
+    private String actors;
+
+    /*
+>>>>>>> testafpost
     @JsonManagedReference
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "film_actors",
@@ -47,7 +53,12 @@ public class Film {
     )
     private List<Actor> actors;
 
-    @JsonBackReference
+     */
+
+
+    @JsonManagedReference
     @OneToMany(mappedBy = "film")
     private List<FilmShowing> filmShowing;
+
+
 }
