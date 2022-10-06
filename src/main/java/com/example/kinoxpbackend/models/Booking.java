@@ -1,11 +1,14 @@
 package com.example.kinoxpbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
+
 @NoArgsConstructor
 @Setter
 @Getter
@@ -21,15 +24,15 @@ public class Booking {
         private int length;
         @JsonManagedReference
         @ManyToOne()
-
         @JoinColumn(name = "film_showing_id", nullable = false)
         private FilmShowing filmShowing;
         //tid
         @Column(name = "TIME")
         private String time;
         //seat
-        @Column(name = "SEAT")
-        private String seat;
+        @JsonBackReference
+        @OneToMany(mappedBy = "booking")
+        private List<Seat> seat;
         //room
         @Column(name = "ROOM")
         private String room;

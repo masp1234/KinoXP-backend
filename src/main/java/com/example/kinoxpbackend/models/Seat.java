@@ -1,21 +1,22 @@
 package com.example.kinoxpbackend.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
+@SuppressWarnings("JpaAttributeTypeInspection")
 @Entity
 @Getter
 @Setter
-@Builder
-@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "SEAT")
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="seat_id")
     int id;
 
     @Column (name = "seatRow", nullable = false)
@@ -24,11 +25,15 @@ public class Seat {
     @Column (name = "seatNumber", nullable = false)
     private int seatNumber;
 
-    @ManyToOne
-    Room room;
+    @JsonManagedReference
+    @ManyToMany
+    @JoinColumn(name= "room_id")
+    private Room room;
 
+    @JsonManagedReference
     @ManyToOne
-    Booking booking;
+    @JoinColumn(name= "booking_id")
+    private Booking booking;
 
     public Seat(String seatRow, int seatNumber, Room room) {
         this.seatRow = seatRow;

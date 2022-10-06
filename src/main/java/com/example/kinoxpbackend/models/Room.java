@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
+@SuppressWarnings("JpaAttributeTypeInspection")
 @Entity
-@Table(name= "Room")
+@Table(name= "ROOM")
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +25,8 @@ public class Room {
     @JoinColumn(name = "film_showing_id", nullable = false)
     private FilmShowing filmShowing;
 
-    
+    @JsonManagedReference
+    @ManyToMany
+    @JoinColumn(name= "seat_id")
+    private Seat seat;
 }
