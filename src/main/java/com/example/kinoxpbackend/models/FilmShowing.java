@@ -21,8 +21,6 @@ public class FilmShowing {
     @Column(name="film_showing_id")
     private Long filmShowingId;
 
-
-
     @Column(name="LENGTH")
     private int length;
 
@@ -31,9 +29,6 @@ public class FilmShowing {
     @ManyToOne()
     @JoinColumn(name= "film_id", nullable = false)
     private Film film;
-
-
-
 
     @Column(name = "ROOM")
     private String room;

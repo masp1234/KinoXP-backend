@@ -24,4 +24,12 @@ public class FilmShowingService {
     public Optional<FilmShowing> find(Long id) {
         return filmShowingRepository.findById(id);
     }
+
+    public FilmShowing update(Long id, FilmShowing filmShowing) {
+        return filmShowingRepository.save(filmShowing);
+    }
+
+    public void add(FilmShowing filmShowing) {
+        filmShowingRepository.save(filmShowing);
+    }
 }
