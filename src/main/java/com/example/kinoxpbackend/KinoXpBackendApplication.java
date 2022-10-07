@@ -1,10 +1,7 @@
 package com.example.kinoxpbackend;
 
-import com.example.kinoxpbackend.models.User;
+import com.example.kinoxpbackend.models.*;
 import com.example.kinoxpbackend.repositories.UserRepository;
-import com.example.kinoxpbackend.models.Actor;
-import com.example.kinoxpbackend.models.Film;
-import com.example.kinoxpbackend.models.FilmShowing;
 import com.example.kinoxpbackend.repositories.ActorRepository;
 import com.example.kinoxpbackend.repositories.FilmRepository;
 import com.example.kinoxpbackend.repositories.FilmShowingRepository;
@@ -68,7 +65,7 @@ public class KinoXpBackendApplication {
 
             FilmShowing filmShowing= new FilmShowing();
             filmShowing.setLength(59);
-            filmShowing.setRoom("12");
+            filmShowing.setRoom(new Room());
             filmShowing.setPrice(80);
             filmShowing.setFilm(film1);
             filmShowingRepository.save(filmShowing);

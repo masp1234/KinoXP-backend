@@ -2,6 +2,7 @@ package com.example.kinoxpbackend.controllers;
 
 import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.models.FilmShowing;
+import com.example.kinoxpbackend.models.Room;
 import com.example.kinoxpbackend.services.FilmShowingService;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -62,10 +63,11 @@ public class FilmShowController {
     }
     */
 
-    @PatchMapping("/{id}")
+
+    @PatchMapping("/oneFileShowing/{id}")
     public ResponseEntity<FilmShowing> update(@PathVariable("id") Long id, @Valid @RequestParam("LENGTH") int length,
                                               @RequestParam("film_id")Film film,
-                                              @RequestParam("ROOM") String room, @RequestParam("PRICE") double price){
+                                              @RequestParam("ROOM") Room room, @RequestParam("PRICE") double price){
         FilmShowing filmShowing = new FilmShowing();
         filmShowing.setFilm(film);
         filmShowing.setLength(length);

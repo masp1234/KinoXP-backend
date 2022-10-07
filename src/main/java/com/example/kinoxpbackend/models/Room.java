@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Setter
@@ -26,12 +27,12 @@ public class Room {
     private String smallRoom;
 
     @JsonManagedReference
-    @ManyToOne()
-    @JoinColumn(name = "film_showing_id", nullable = false)
-    private FilmShowing filmShowing;
+    @OneToMany(mappedBy = "room")
+//    @JoinColumn(name = "film_showing_id", nullable = false)
+    private List<FilmShowing> filmShowing;
 
     @JsonManagedReference
-    @ManyToMany
+    @OneToMany
     @JoinColumn(name= "seat_id")
-    private Seat seat;
+    private List<Seat> seat;
 }

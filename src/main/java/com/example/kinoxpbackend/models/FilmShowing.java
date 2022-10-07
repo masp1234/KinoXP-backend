@@ -32,8 +32,8 @@ public class FilmShowing {
     private Film film;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "filmShowing")
-    private List<Room> room;
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Room room;
 
     @Column(name = "PRICE")
     private double price;

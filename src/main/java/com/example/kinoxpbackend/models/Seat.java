@@ -26,7 +26,7 @@ public class Seat {
     private int seatNumber;
 
     @JsonManagedReference
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name= "room_id")
     private Room room;
 
