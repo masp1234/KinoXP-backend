@@ -58,8 +58,9 @@ public class KinoXpBackendApplication {
             filmRepository.save(film2);
 
             FilmShowing filmShowing= new FilmShowing();
-            filmShowing.setLength(59);
-            filmShowing.setRoom(new Room());
+            filmShowing.setDate("01-01-2020");
+            filmShowing.setTime("12.00");
+            //filmShowing.setRoom(new Room());
             filmShowing.setPrice(80);
             filmShowing.setFilm(film1);
             filmShowingRepository.save(filmShowing);
@@ -68,9 +69,10 @@ public class KinoXpBackendApplication {
             filmRepository.save(film2);
             FilmShowing filmShowing2 = new FilmShowing();
             filmShowing2.setFilm(film2);
-            filmShowing2.setLength(170);
+            filmShowing2.setDate("01-02-2020");
+            filmShowing2.setTime("13.00");
             filmShowing2.setPrice(80);
-            filmShowing2.setRoom(new Room());
+            //filmShowing2.setRoom(new Room());
 
             filmShowingRepository.save(filmShowing2);
 
