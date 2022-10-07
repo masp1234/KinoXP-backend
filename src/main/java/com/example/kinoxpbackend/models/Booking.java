@@ -30,9 +30,12 @@ public class Booking {
         @Column(name = "TIME")
         private String time;
         //seat
+        /*
         @JsonBackReference
         @OneToMany(mappedBy = "booking")
         private List<Seat> seat;
+
+         */
         //room
         @Column(name = "ROOM")
         private String room;
