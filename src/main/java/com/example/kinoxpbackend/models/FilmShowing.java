@@ -28,15 +28,17 @@ public class FilmShowing {
     @Column(name = "film_showing_date")
     private String date;
 
-    @JsonManagedReference
+    //@JsonManagedReference
     @ManyToOne()
     @JoinColumn(name = "film_id", nullable = false)
     private Film film;
 
-
+/*
     @JsonManagedReference
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Room room;
+
+ */
 
     @Column(name = "film_showing_price")
     private double price;

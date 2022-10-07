@@ -70,7 +70,7 @@ public class FilmShowController {
         FilmShowing filmShowing = new FilmShowing();
         filmShowing.setFilm(film);
         //filmShowing.setLength(length);
-        filmShowing.setRoom(room);
+       // filmShowing.setRoom(room);
         filmShowing.setPrice(price);
         return ResponseEntity.ok().body(filmShowingService.update(id,filmShowing));
     }
