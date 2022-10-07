@@ -69,7 +69,7 @@ public class FilmShowController {
                                               @RequestParam("ROOM") Room room, @RequestParam("PRICE") double price){
         FilmShowing filmShowing = new FilmShowing();
         filmShowing.setFilm(film);
-        filmShowing.setLength(length);
+        //filmShowing.setLength(length);
         filmShowing.setRoom(room);
         filmShowing.setPrice(price);
         return ResponseEntity.ok().body(filmShowingService.update(id,filmShowing));
