@@ -71,7 +71,7 @@ public class KinoXpBackendApplication {
             filmShowing2.setFilm(film2);
             filmShowing2.setLength(170);
             filmShowing2.setPrice(80);
-            filmShowing2.setRoom("1");
+            filmShowing2.setRoom(new Room());
 
             filmShowingRepository.save(filmShowing2);
 
