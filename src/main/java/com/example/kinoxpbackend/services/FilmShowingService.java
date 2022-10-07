@@ -1,9 +1,11 @@
 package com.example.kinoxpbackend.services;
 
+import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.models.FilmShowing;
 import com.example.kinoxpbackend.repositories.FilmShowingRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,10 +28,7 @@ public class FilmShowingService {
     }
 
     public FilmShowing update(Long id, FilmShowing filmShowing) {
-        return filmShowingRepository.save(filmShowing);
-    }
 
-    public void add(FilmShowing filmShowing) {
-        filmShowingRepository.save(filmShowing);
+        return filmShowingRepository.save(filmShowing);
     }
 }

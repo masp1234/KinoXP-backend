@@ -18,20 +18,21 @@ import java.util.List;
 public class FilmShowing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="film_showing_id")
+    @Column(name = "film_showing_id")
     private Long filmShowingId;
 
-    @Column(name="LENGTH")
+
+    @Column(name = "LENGTH")
     private int length;
 
-    //@JsonManagedReference
-    //@JsonBackReference
+    @JsonManagedReference
     @ManyToOne()
-    @JoinColumn(name= "film_id", nullable = false)
+    @JoinColumn(name = "film_id", nullable = false)
     private Film film;
 
-    @Column(name = "ROOM")
-    private String room;
+    @JsonBackReference
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Room room;
 
     @Column(name = "PRICE")
     private double price;
