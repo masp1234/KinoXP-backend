@@ -1,5 +1,6 @@
 package com.example.kinoxpbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,11 +22,12 @@ public class Room {
     @Column(name = "name")
     private String name;
 
-    @JsonManagedReference
+    @JsonBackReference
     @OneToMany(mappedBy = "room")
 //    @JoinColumn(name = "film_showing_id", nullable = false)
     private List<FilmShowing> filmShowing;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "room")
     private List<Row> rows;
 

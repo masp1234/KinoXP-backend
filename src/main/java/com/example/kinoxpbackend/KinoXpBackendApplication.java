@@ -32,6 +32,32 @@ public class KinoXpBackendApplication {
             ) {
 
         return (args) -> {
+            Seat seat = new Seat();
+            seat.setSeatNumber(10);
+
+            Room room1 = new Room();
+            room1.setName("rum1");
+
+
+            Row row = new Row();
+            row.setName("A");
+            row.setRoom(room1);
+            row.setSeats(Arrays.asList(seat));
+
+            seat.setRow(row);
+
+            seatRepository.save(seat);
+
+            rowRepository.save(row);
+
+
+
+
+
+
+            room1.setRows(Arrays.asList(row));
+
+            roomRepository.save(room1);
 
             User user = new User("123", "123","123","admin");
             userRepository.save(user);
@@ -80,34 +106,14 @@ public class KinoXpBackendApplication {
             filmShowing2.setPrice(80);
             filmShowing2.setRoom(new Room());
 
+            filmShowing2.setRoom(room1);
             filmShowingRepository.save(filmShowing2);
 
-            Seat seat = new Seat();
-            seat.setSeatNumber(10);
 
-            Room room1 = new Room();
-            room1.setName("rum1");
             room1.setFilmShowing(Arrays.asList(filmShowing2));
-
-            Row row = new Row();
-            row.setName("A");
-            row.setRoom(room1);
-            row.setSeats(Arrays.asList(seat));
-
-            seat.setRow(row);
-
-            seatRepository.save(seat);
-
-            rowRepository.save(row);
-
-
-
-
-
-
-            room1.setRows(Arrays.asList(row));
-
             roomRepository.save(room1);
+
+
 
 
 
@@ -120,7 +126,7 @@ public class KinoXpBackendApplication {
             customer.setLastName("Ali");
             customer.setEmail("ex@kinoXP.dk");
             customer.setBookings(null);
-            customer.setTlfNr(45454545);
+            customer.setPhoneNumber("45454545");
             customerRepository.save(customer);
 
 

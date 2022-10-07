@@ -34,8 +34,8 @@ public class FilmShowing {
     private Film film;
 
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JsonManagedReference
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Room room;
 
     @Column(name = "film_showing_price")

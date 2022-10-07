@@ -31,6 +31,7 @@ public class Seat {
     @JoinColumn(name= "booking_id")
     private Booking booking;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "rows_id")
     private Row row;
