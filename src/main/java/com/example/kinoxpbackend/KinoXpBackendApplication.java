@@ -24,8 +24,7 @@ public class KinoXpBackendApplication {
                                          UserRepository userRepository,
                                          FilmRepository filmRepository,
                                          FilmShowingRepository filmShowingRepository,
-                                         CustomerRepository customerRepository
-                                         FilmShowingRepository filmShowingRepository,
+                                         CustomerRepository customerRepository,
                                          RoomRepository roomRepository,
                                          RowRepository rowRepository,
                                          SeatRepository seatRepository

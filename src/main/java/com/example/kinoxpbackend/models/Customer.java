@@ -19,7 +19,7 @@ public class Customer {
     @Column(name = "customer_id")
     private Long customerId;
 
-    @Column(name = "ferst_name")
+    @Column(name = "first_name")
     private String ferstName;
 
     @Column(name = "last_name")
@@ -32,7 +32,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 
-    @Column(name = "tlf_nr")
-    private int tlfNr;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
 }
