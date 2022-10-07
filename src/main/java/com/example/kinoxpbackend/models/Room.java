@@ -29,7 +29,6 @@ public class Room {
 
 
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "room", cascade = CascadeType.PERSIST)
     private List<Row> rows;
 

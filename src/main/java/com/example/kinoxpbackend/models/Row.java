@@ -1,6 +1,7 @@
 package com.example.kinoxpbackend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +24,7 @@ public class Row {
     @Column(name = "name")
     private String name;
 
-    @JsonBackReference
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "room_id")
     private Room room;

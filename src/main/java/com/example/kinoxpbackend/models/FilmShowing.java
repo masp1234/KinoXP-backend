@@ -1,5 +1,6 @@
 package com.example.kinoxpbackend.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,7 +34,7 @@ public class FilmShowing {
     @JoinColumn(name = "film_id", nullable = false)
     private Film film;
 
-    @JsonManagedReference
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Room room;
 
