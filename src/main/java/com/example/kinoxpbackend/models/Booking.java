@@ -40,6 +40,11 @@ public class Booking {
         @Column(name = "ROOM")
         private String room;
 
+        @JsonManagedReference
+        @ManyToOne()
+        @JoinColumn(name = "customer_id")
+        private Customer customer;
+
 
 
 }

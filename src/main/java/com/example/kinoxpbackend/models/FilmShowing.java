@@ -22,19 +22,23 @@ public class FilmShowing {
     private Long filmShowingId;
 
 
-    @Column(name = "LENGTH")
-    private int length;
+    @Column(name = "film_showing_time")
+    private String time;
+
+    @Column(name = "film_showing_date")
+    private String date;
 
     @JsonManagedReference
     @ManyToOne()
     @JoinColumn(name = "film_id", nullable = false)
     private Film film;
 
+
     @JsonBackReference
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Room room;
 
-    @Column(name = "PRICE")
+    @Column(name = "film_showing_price")
     private double price;
 
 
