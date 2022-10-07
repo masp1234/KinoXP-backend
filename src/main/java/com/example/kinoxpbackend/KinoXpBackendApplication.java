@@ -1,11 +1,9 @@
 package com.example.kinoxpbackend;
 
 import com.example.kinoxpbackend.models.*;
-import com.example.kinoxpbackend.repositories.UserRepository;
+import com.example.kinoxpbackend.repositories.*;
 import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.models.FilmShowing;
-import com.example.kinoxpbackend.repositories.FilmRepository;
-import com.example.kinoxpbackend.repositories.FilmShowingRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,7 +20,8 @@ public class KinoXpBackendApplication {
     public CommandLineRunner importData( //repositories
                                          UserRepository userRepository,
                                          FilmRepository filmRepository,
-                                         FilmShowingRepository filmShowingRepository
+                                         FilmShowingRepository filmShowingRepository,
+                                         CustomerRepository customerRepository
 
             ) {
 
@@ -74,6 +73,21 @@ public class KinoXpBackendApplication {
             filmShowing2.setRoom(new Room());
 
             filmShowingRepository.save(filmShowing2);
+
+
+
+            Customer customer= new Customer();
+            customer.setFerstName("Renas");
+            customer.setLastName("Ali");
+            customer.setEmail("ex@kinoXP.dk");
+            customer.setBookings(null);
+            customer.setTlfNr(45454545);
+            customerRepository.save(customer);
+
+
+
+
+
 
 
 
