@@ -1,15 +1,16 @@
 package com.example.kinoxpbackend;
 
 import com.example.kinoxpbackend.models.*;
-import com.example.kinoxpbackend.repositories.UserRepository;
+import com.example.kinoxpbackend.repositories.*;
 import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.models.FilmShowing;
-import com.example.kinoxpbackend.repositories.FilmRepository;
-import com.example.kinoxpbackend.repositories.FilmShowingRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class KinoXpBackendApplication {
@@ -22,7 +23,10 @@ public class KinoXpBackendApplication {
     public CommandLineRunner importData( //repositories
                                          UserRepository userRepository,
                                          FilmRepository filmRepository,
-                                         FilmShowingRepository filmShowingRepository
+                                         FilmShowingRepository filmShowingRepository,
+                                         RoomRepository roomRepository,
+                                         RowRepository rowRepository,
+                                         SeatRepository seatRepository
 
             ) {
 
@@ -74,6 +78,37 @@ public class KinoXpBackendApplication {
             filmShowing2.setRoom(new Room());
 
             filmShowingRepository.save(filmShowing2);
+
+            Seat seat = new Seat();
+            seat.setSeatNumber(10);
+
+            Room room1 = new Room();
+            room1.setName("rum1");
+            room1.setFilmShowing(Arrays.asList(filmShowing2));
+
+            Row row = new Row();
+            row.setName("A");
+            row.setRoom(room1);
+            row.setSeats(Arrays.asList(seat));
+
+            seat.setRow(row);
+
+            seatRepository.save(seat);
+
+            rowRepository.save(row);
+
+
+
+
+
+
+            room1.setRows(Arrays.asList(row));
+
+            roomRepository.save(room1);
+
+
+
+
 
 
 

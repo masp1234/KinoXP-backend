@@ -1,4 +1,4 @@
-/*
+
 package com.example.kinoxpbackend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -26,12 +26,15 @@ public class Seat {
     @Column (name = "seatNumber", nullable = false)
     private int seatNumber;
 
-
-
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name= "booking_id")
     private Booking booking;
+
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "rows_id")
+    private Row row;
+
 
     public Seat(String seatRow) {
 
@@ -41,7 +44,7 @@ public class Seat {
 
 }
 
- */
+
 
 
 
