@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class KinoXpBackendApplication {
@@ -32,32 +33,25 @@ public class KinoXpBackendApplication {
             ) {
 
         return (args) -> {
+
             Seat seat = new Seat();
-            seat.setSeatNumber(10);
-
-            Room room1 = new Room();
-            room1.setName("rum1");
-
-
             Row row = new Row();
-            row.setName("A");
-            row.setRoom(room1);
-            row.setSeats(Arrays.asList(seat));
+            Room room = new Room();
 
+            row.setRoom(room);
             seat.setRow(row);
-
-            seatRepository.save(seat);
-
-            rowRepository.save(row);
+            room.setRows(List.of(row));
+            row.setSeats(List.of(seat));
 
 
 
 
 
 
-            room1.setRows(Arrays.asList(row));
 
-            roomRepository.save(room1);
+
+
+
 
             User user = new User("123", "123","123","admin");
             userRepository.save(user);
@@ -104,14 +98,18 @@ public class KinoXpBackendApplication {
             filmShowing2.setDate("01-02-2020");
             filmShowing2.setTime("13.00");
             filmShowing2.setPrice(80);
-           // filmShowing2.setRoom(new Room());
+            filmShowing2.setRoom(new Room());
 
-           // filmShowing2.setRoom(room1);
+
+
+            roomRepository.save(room);
+
+            filmShowing2.setRoom(room);
             filmShowingRepository.save(filmShowing2);
 
 
-           // room1.setFilmShowing(Arrays.asList(filmShowing2));
-            roomRepository.save(room1);
+
+
 
 
 
@@ -128,6 +126,9 @@ public class KinoXpBackendApplication {
             customer.setBookings(null);
             customer.setPhoneNumber("45454545");
             customerRepository.save(customer);
+
+            room.setFilmShowing(List.of(filmShowing2));
+            roomRepository.save(room);
 
 
 

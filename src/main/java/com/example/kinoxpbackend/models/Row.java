@@ -24,11 +24,11 @@ public class Row {
     private String name;
 
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne()
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "row")
     private List<Seat> seats;
 
 

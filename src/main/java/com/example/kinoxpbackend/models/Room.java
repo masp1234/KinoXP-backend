@@ -22,18 +22,15 @@ public class Room {
     @Column(name = "name")
     private String name;
 
-    /*
+
     @JsonBackReference
     @OneToMany(mappedBy = "room")
-//    @JoinColumn(name = "film_showing_id", nullable = false)
     private List<FilmShowing> filmShowing;
-
-     */
 
 
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", cascade = CascadeType.PERSIST)
     private List<Row> rows;
 
 
