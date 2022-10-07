@@ -74,5 +74,9 @@ public class FilmShowController {
         filmShowing.setPrice(price);
         return ResponseEntity.ok().body(filmShowingService.update(id,filmShowing));
     }
-
+    @PostMapping(value = "/addFilmShowing")
+    public ResponseEntity<FilmShowing> addFilmShowing(@RequestBody FilmShowing filmShowing) {
+        filmShowingService.addFilmShowing(filmShowing);
+        return new ResponseEntity<>(filmShowing, HttpStatus.OK);
+    }
 }
