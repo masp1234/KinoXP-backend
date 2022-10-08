@@ -22,8 +22,6 @@ public class Seat {
     @Column(name="seat_id")
     int id;
 
-
-
     @Column (name = "seatNumber", nullable = false)
     private int seatNumber;
 
@@ -34,15 +32,8 @@ public class Seat {
 
     @ManyToOne()
     @JoinColumn(name = "rows_id")
-    @JsonIgnore
+    @JsonBackReference
     private Row row;
-
-
-    public Seat(String seatRow) {
-
-        this.seatNumber = seatNumber;
-
-    }
 
 }
 

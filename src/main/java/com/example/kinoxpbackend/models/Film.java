@@ -46,6 +46,11 @@ public class Film {
     @Column(name = "actors")
     private String actors;
 
+    @JsonBackReference
+    @OneToMany(mappedBy = "film")
+    @ToString.Exclude
+    private List<FilmShowing> filmShowing;
+
     public boolean equals(Object o) {
         Film otherFilm = (Film) o;
         return
@@ -59,23 +64,7 @@ public class Film {
                 && this.actors.equals(otherFilm.getActors());
 
     }
-    /*
->>>>>>> testafpost
-    @JsonManagedReference
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(name = "film_actors",
-            joinColumns = {@JoinColumn(name = "film_id")},
-            inverseJoinColumns = {@JoinColumn(name = "actor_id")}
-    )
-    private List<Actor> actors;
 
-     */
-
-
-    @JsonBackReference
-    @OneToMany(mappedBy = "film")
-    @ToString.Exclude
-    private List<FilmShowing> filmShowing;
 
 
 }

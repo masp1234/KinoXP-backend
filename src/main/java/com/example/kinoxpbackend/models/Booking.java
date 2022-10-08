@@ -22,10 +22,12 @@ public class Booking {
 
         @Column(name = "LENGTH")
         private int length;
-        @JsonManagedReference
+        /*
         @ManyToOne()
         @JoinColumn(name = "film_showing_id", nullable = false)
         private FilmShowing filmShowing;
+
+         */
         //tid
         @Column(name = "TIME")
         private String time;
@@ -40,7 +42,7 @@ public class Booking {
         @Column(name = "ROOM")
         private String room;
 
-        @JsonManagedReference
+
         @ManyToOne()
         @JoinColumn(name = "customer_id")
         private Customer customer;
