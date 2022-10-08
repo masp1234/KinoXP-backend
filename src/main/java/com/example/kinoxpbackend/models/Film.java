@@ -73,7 +73,6 @@ public class Film {
 
 
     @JsonBackReference
-    //@JsonManagedReference
     @OneToMany(mappedBy = "film")
     @ToString.Exclude
     private List<FilmShowing> filmShowing;

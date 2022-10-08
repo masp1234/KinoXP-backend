@@ -29,7 +29,7 @@ public class FilmShowing {
     @Column(name = "film_showing_date")
     private String date;
 
-    //@JsonManagedReference
+
     @ManyToOne()
     @JoinColumn(name = "film_id", nullable = false)
     private Film film;
