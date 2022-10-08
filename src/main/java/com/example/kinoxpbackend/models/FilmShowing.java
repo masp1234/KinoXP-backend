@@ -31,10 +31,10 @@ public class FilmShowing {
 
 
     @ManyToOne()
-    @JoinColumn(name = "film_id", nullable = false)
+    @JoinColumn(name = "film_id")
     private Film film;
 
-    @JsonIgnore
+
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Room room;
 

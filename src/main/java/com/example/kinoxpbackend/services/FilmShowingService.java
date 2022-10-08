@@ -1,6 +1,8 @@
 package com.example.kinoxpbackend.services;
 
+import com.example.kinoxpbackend.models.Film;
 import com.example.kinoxpbackend.models.FilmShowing;
+import com.example.kinoxpbackend.repositories.FilmRepository;
 import com.example.kinoxpbackend.repositories.FilmShowingRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +12,11 @@ import java.util.Optional;
 public class FilmShowingService {
 
     private FilmShowingRepository filmShowingRepository;
+    private FilmRepository filmRepository;
 
-    public FilmShowingService(FilmShowingRepository filmShowingRepository) {
+    public FilmShowingService(FilmShowingRepository filmShowingRepository, FilmRepository filmRepository) {
         this.filmShowingRepository = filmShowingRepository;
+        this.filmRepository = filmRepository;
     }
 
     public Iterable<FilmShowing> findAll() {
@@ -27,8 +31,11 @@ public class FilmShowingService {
 
         return filmShowingRepository.save(filmShowing);
     }
+
     //add filmShowing
-    public void addFilmShowing(FilmShowing filmShowing) {
-       filmShowingRepository.save(filmShowing);
+    public FilmShowing addFilmShowing(FilmShowing filmShowing, Long filmId) {
+        Film foundFilm = filmRepository.findById(filmId).get();
+        filmShowing.setFilm(foundFilm);
+        return filmShowingRepository.save(filmShowing);
     }
 }
