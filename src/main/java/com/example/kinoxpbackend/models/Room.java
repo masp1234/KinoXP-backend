@@ -17,7 +17,7 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "room_id")
-    private Long roomId;
+    private Long Id;
 
     @Column(name = "name")
     private String name;
@@ -31,6 +31,9 @@ public class Room {
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.PERSIST)
     private List<Row> rows;
+
+    @OneToOne(mappedBy = "room")
+    private Booking booking;
 
 
 }

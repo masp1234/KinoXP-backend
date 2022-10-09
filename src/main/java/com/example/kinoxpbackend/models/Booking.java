@@ -22,12 +22,12 @@ public class Booking {
 
         @Column(name = "LENGTH")
         private int length;
-        /*
+
         @ManyToOne()
         @JoinColumn(name = "film_showing_id", nullable = false)
         private FilmShowing filmShowing;
 
-         */
+
         //tid
         @Column(name = "TIME")
         private String time;
@@ -39,8 +39,9 @@ public class Booking {
 
          */
         //room
-        @Column(name = "ROOM")
-        private String room;
+        @OneToOne
+        @JoinColumn(name = "room_id")
+        private Room room;
 
 
         @ManyToOne()
