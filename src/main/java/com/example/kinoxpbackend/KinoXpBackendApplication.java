@@ -106,6 +106,14 @@ public class KinoXpBackendApplication {
             filmShowing2.setPrice(80);
            // filmShowing2.setRoom(new Room());
 
+            filmRepository.save(film2);
+            FilmShowing filmShowing3 = new FilmShowing();
+            filmShowing3.setFilm(film2);
+            filmShowing3.setDate("01-02-2020");
+            filmShowing3.setTime("12.00");
+            filmShowing3.setPrice(80);
+            filmShowingRepository.save((filmShowing3));
+
            // filmShowing2.setRoom(room1);
             filmShowingRepository.save(filmShowing2);
 
