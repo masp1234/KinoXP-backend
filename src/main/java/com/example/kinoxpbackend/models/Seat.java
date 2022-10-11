@@ -29,7 +29,7 @@ public class Seat {
     private List<Booking> bookings;
 
     @ManyToOne()
-    @JoinColumn(name = "rows_id")
+    @JoinColumn(name = "row_id")
     @JsonBackReference(value = "row")
     private Row row;
 
