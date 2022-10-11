@@ -36,4 +36,8 @@ public class BookingService {
     public List<Booking> getAllBookingsByFilmShowingId(Long filmShowingId) {
         return bookingRepository.findAllByFilmShowing_FilmShowingId(filmShowingId);
     }
+
+    public List<Booking> getAllBookings() {
+        return bookingRepository.findAll();
+    }
 }

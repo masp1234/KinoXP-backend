@@ -35,4 +35,9 @@ public class BookingController {
         return new ResponseEntity<>(bookingService.getAllBookingsByFilmShowingId(filmShowingId), HttpStatus.OK);
     }
 
+    @GetMapping("/getAllBooking")
+    public ResponseEntity<List<Booking>> getAllBookings() {
+        return new ResponseEntity<>(bookingService.getAllBookings(), HttpStatus.OK);
+    }
+
 }
