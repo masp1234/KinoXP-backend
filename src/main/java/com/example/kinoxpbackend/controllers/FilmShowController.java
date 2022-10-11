@@ -26,6 +26,8 @@ public class FilmShowController {
         return new ResponseEntity<>(findAll, HttpStatus.OK);
     }
 
+
+
     @GetMapping("/oneFilmShowing/{id}")
     ResponseEntity<FilmShowing> oneFilmShowing(@PathVariable("id") Long id){
         FilmShowing filmShowing = filmShowingService.find(id).get();
@@ -78,5 +80,11 @@ public class FilmShowController {
     public ResponseEntity<FilmShowing> addFilmShowing(@RequestBody FilmShowing filmShowing) {
         filmShowingService.addFilmShowing(filmShowing);
         return new ResponseEntity<>(filmShowing, HttpStatus.OK);
+    }
+
+    @GetMapping("/filmShowingsByDate/{date}")
+    List<FilmShowing> filmsShowingByDate(@PathVariable("date") String date){
+        List<FilmShowing> filmShowings = filmShowingService.findByDate(date);
+        return filmShowings;
     }
 }

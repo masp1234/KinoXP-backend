@@ -90,7 +90,7 @@ public class KinoXpBackendApplication {
             filmRepository.save(film2);
 
             FilmShowing filmShowing= new FilmShowing();
-            filmShowing.setDate("01-01-2020");
+            filmShowing.setDate("11-10-2022");
             filmShowing.setTime("12.00");
             //filmShowing.setRoom(new Room());
             filmShowing.setPrice(80);
@@ -101,7 +101,7 @@ public class KinoXpBackendApplication {
             filmRepository.save(film2);
             FilmShowing filmShowing2 = new FilmShowing();
             filmShowing2.setFilm(film2);
-            filmShowing2.setDate("01-02-2020");
+            filmShowing2.setDate("11-10-2022");
             filmShowing2.setTime("13.00");
             filmShowing2.setPrice(80);
            // filmShowing2.setRoom(new Room());
@@ -109,7 +109,7 @@ public class KinoXpBackendApplication {
             filmRepository.save(film2);
             FilmShowing filmShowing3 = new FilmShowing();
             filmShowing3.setFilm(film2);
-            filmShowing3.setDate("01-02-2020");
+            filmShowing3.setDate("11-10-2022");
             filmShowing3.setTime("12.00");
             filmShowing3.setPrice(80);
             filmShowingRepository.save((filmShowing3));
@@ -122,8 +122,26 @@ public class KinoXpBackendApplication {
             roomRepository.save(room1);
 
 
+            FilmShowing filmShowing4 = new FilmShowing();
+            filmShowing4.setFilm(film2);
+            filmShowing4.setDate("11-10-2022");
+            filmShowing4.setTime("12.00");
+            filmShowing4.setPrice(80);
+            filmShowingRepository.save((filmShowing4));
 
+            FilmShowing filmShowing5 = new FilmShowing();
+            filmShowing5.setFilm(film2);
+            filmShowing5.setDate("12-10-2022");
+            filmShowing5.setTime("12.00");
+            filmShowing5.setPrice(80);
+            filmShowingRepository.save((filmShowing5));
 
+            FilmShowing filmShowing6 = new FilmShowing();
+            filmShowing6.setFilm(film2);
+            filmShowing6.setDate("12-10-2022");
+            filmShowing6.setTime("15.00");
+            filmShowing6.setPrice(80);
+            filmShowingRepository.save((filmShowing6));
 
 
 
