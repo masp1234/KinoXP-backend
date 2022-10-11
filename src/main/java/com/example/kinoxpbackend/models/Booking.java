@@ -13,38 +13,35 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Table(name = "BOOKING")
+@Table(name = "booking")
 public class Booking {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "BOOKING_ID")
+        @Column(name = "booking_id")
         private Long bookingId;
 
-        @Column(name = "LENGTH")
-        private int length;
-
         @ManyToOne()
-        @JoinColumn(name = "FILM_SHOWING_ID")
+        @JoinColumn(name = "film_showing_id")
         private FilmShowing filmShowing;
 
         //tid
-        @Column(name = "TIME")
+        @Column(name = "booking_time")
         private String time;
         //seat
 
         @ManyToMany()
-        @JoinTable(name = "BOOKED_SEATS",
-        joinColumns = @JoinColumn(name = "BOOKING_ID"),
-        inverseJoinColumns = @JoinColumn(name = "SEAT_ID"))
+        @JoinTable(name = "booked_seats",
+        joinColumns = @JoinColumn(name = "booking_id"),
+        inverseJoinColumns = @JoinColumn(name = "seat_id"))
         private List<Seat> seats;
 
         @OneToOne
-        @JoinColumn(name = "ROOM_ID")
+        @JoinColumn(name = "room_id")
         private Room room;
 
         @JsonBackReference
         @ManyToOne()
-        @JoinColumn(name = "CUSTOMER_ID")
+        @JoinColumn(name = "customer_id")
         private Customer customer;
 
 

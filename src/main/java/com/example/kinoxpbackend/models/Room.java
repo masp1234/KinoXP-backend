@@ -19,7 +19,7 @@ public class Room {
     @Column(name= "room_id")
     private Long Id;
 
-    @Column(name = "name")
+    @Column(name = "room_name")
     private String name;
 
 

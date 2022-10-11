@@ -22,7 +22,7 @@ public class Row {
     @Column(name = "row_id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "row_name")
     private String name;
 
     @JsonBackReference

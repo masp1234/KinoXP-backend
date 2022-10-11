@@ -14,14 +14,14 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "SEAT")
+@Table(name = "seat")
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="seat_id")
     int id;
 
-    @Column (name = "seatNumber", nullable = false)
+    @Column (name = "seat_number", nullable = false)
     private int seatNumber;
 
     @ManyToMany(mappedBy = "seats")

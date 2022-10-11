@@ -43,7 +43,7 @@ public class Film {
     private String poster;
 
 
-    @Column(name = "actors")
+    @Column(name = "film_actors")
     private String actors;
 
     @JsonBackReference
