@@ -23,7 +23,7 @@ public class Room {
     private String name;
 
 
-    @JsonBackReference
+    @JsonBackReference(value = "filmShowing")
     @OneToMany(mappedBy = "room")
     private List<FilmShowing> filmShowing;
 
@@ -32,6 +32,7 @@ public class Room {
     @OneToMany(mappedBy = "room", cascade = CascadeType.PERSIST)
     private List<Row> rows;
 
+    @JsonBackReference(value = "booking")
     @OneToOne(mappedBy = "room")
     private Booking booking;
 

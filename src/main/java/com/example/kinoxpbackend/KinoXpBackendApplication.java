@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,13 +29,15 @@ public class KinoXpBackendApplication {
                                          CustomerRepository customerRepository,
                                          RoomRepository roomRepository,
                                          RowRepository rowRepository,
-                                         SeatRepository seatRepository
+                                         SeatRepository seatRepository,
+                                         BookingRepository bookingRepository
 
             ) {
 
         return (args) -> {
 
             Seat seat = new Seat();
+            seat.setSeatNumber(1);
             Row row = new Row();
             Room room = new Room();
 
@@ -43,16 +46,7 @@ public class KinoXpBackendApplication {
             room.setRows(List.of(row));
             row.setSeats(List.of(seat));
 
-
-
-
-
-
-
-
-
-
-
+            
             User user = new User("123", "123","123","admin");
             userRepository.save(user);
             // whatever du har lyst til
@@ -72,11 +66,6 @@ public class KinoXpBackendApplication {
             film2.setDescription("En film om en anden planet");
             film2.setPoster("https://prod.cdn.bbaws.net/TDC_Blockbuster_-_Production/1016/604/FO-0371_po-reg-medium_orig.jpg");
             film2.setLengthInMinutes(160);
-
-
-
-
-
 
 
 
@@ -108,17 +97,6 @@ public class KinoXpBackendApplication {
             filmShowingRepository.save(filmShowing2);
 
 
-
-
-
-
-
-
-
-
-
-
-
             Customer customer= new Customer();
             customer.setFerstName("Renas");
             customer.setLastName("Ali");
@@ -129,6 +107,20 @@ public class KinoXpBackendApplication {
 
             room.setFilmShowing(List.of(filmShowing2));
             roomRepository.save(room);
+
+
+            Booking booking = new Booking();
+            booking.setFilmShowing(filmShowing2);
+            booking.setRoom(filmShowing2.getRoom());
+            List<Seat> seats = new ArrayList<>();
+            bookingRepository.save(booking);
+            booking.getRoom().getRows().forEach(r -> seats.addAll(row.getSeats()));
+            booking.setSeat(seats);
+            seats.forEach(s -> s.setBooking(booking));
+            seatRepository.saveAll(seats);
+            bookingRepository.save(booking);
+
+
 
 
 

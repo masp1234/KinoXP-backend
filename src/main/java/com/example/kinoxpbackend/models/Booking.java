@@ -27,22 +27,17 @@ public class Booking {
         @JoinColumn(name = "film_showing_id", nullable = false)
         private FilmShowing filmShowing;
 
-
         //tid
         @Column(name = "TIME")
         private String time;
         //seat
-        /*
-        @JsonBackReference
+
         @OneToMany(mappedBy = "booking")
         private List<Seat> seat;
 
-         */
-        //room
         @OneToOne
         @JoinColumn(name = "room_id")
         private Room room;
-
 
         @ManyToOne()
         @JoinColumn(name = "customer_id")
