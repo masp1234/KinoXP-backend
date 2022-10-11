@@ -24,7 +24,7 @@ public class Booking {
         private int length;
 
         @ManyToOne()
-        @JoinColumn(name = "FILM_SHOWING_ID", nullable = false)
+        @JoinColumn(name = "FILM_SHOWING_ID")
         private FilmShowing filmShowing;
 
         //tid

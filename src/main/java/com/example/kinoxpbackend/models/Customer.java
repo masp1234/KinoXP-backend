@@ -33,4 +33,10 @@ public class Customer {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+
+    public Booking addBooking(Booking booking) {
+        bookings.add(booking);
+        return booking;
+
+    }
 }

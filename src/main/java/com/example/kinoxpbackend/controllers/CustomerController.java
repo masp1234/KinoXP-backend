@@ -1,5 +1,6 @@
 package com.example.kinoxpbackend.controllers;
 
+import com.example.kinoxpbackend.models.Booking;
 import com.example.kinoxpbackend.models.Customer;
 import com.example.kinoxpbackend.services.CustomerService;
 import org.springframework.http.HttpStatus;
@@ -27,5 +28,14 @@ public class CustomerController {
     public ResponseEntity<Customer> getCustomerByEmail(@PathVariable("email") String email){
         Customer foudedCustomer= customerService.getCustomerByEmail(email);
         return new ResponseEntity<>(foudedCustomer, HttpStatus.OK);
+    }
+
+    @PostMapping("/assign-booking/{customerId}")
+    public ResponseEntity<Customer> assignBookingToCustomerById(@RequestBody Booking booking,
+                                                                @PathVariable("customerId") Long customerId) {
+        Customer customer = customerService.addBookingToCustomer(booking, customerId);
+
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+
     }
 }
