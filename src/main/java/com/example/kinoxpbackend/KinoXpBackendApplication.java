@@ -35,18 +35,33 @@ public class KinoXpBackendApplication {
             ) {
 
         return (args) -> {
-
             Seat seat = new Seat();
-            seat.setSeatNumber(1);
+            seat.setSeatNumber(10);
+
+            Room room1 = new Room();
+            room1.setName("rum1");
+
+
             Row row = new Row();
-            Room room = new Room();
+            row.setName("A");
+            row.setRoom(room1);
+            row.setSeats(Arrays.asList(seat));
 
-            row.setRoom(room);
             seat.setRow(row);
-            room.setRows(List.of(row));
-            row.setSeats(List.of(seat));
 
-            
+            seatRepository.save(seat);
+
+            rowRepository.save(row);
+
+
+
+
+
+
+            room1.setRows(Arrays.asList(row));
+
+            roomRepository.save(room1);
+
             User user = new User("123", "123","123","admin");
             userRepository.save(user);
             // whatever du har lyst til
@@ -69,11 +84,16 @@ public class KinoXpBackendApplication {
 
 
 
+
+
+
+
+
             filmRepository.save(film1);
             filmRepository.save(film2);
 
             FilmShowing filmShowing= new FilmShowing();
-            filmShowing.setDate("01-01-2020");
+            filmShowing.setDate("11-10-2022");
             filmShowing.setTime("12.00");
             //filmShowing.setRoom(new Room());
             filmShowing.setPrice(80);
@@ -84,17 +104,55 @@ public class KinoXpBackendApplication {
             filmRepository.save(film2);
             FilmShowing filmShowing2 = new FilmShowing();
             filmShowing2.setFilm(film2);
-            filmShowing2.setDate("01-02-2020");
+            filmShowing2.setDate("11-10-2022");
             filmShowing2.setTime("13.00");
             filmShowing2.setPrice(80);
             filmShowing2.setRoom(new Room());
 
 
+            filmRepository.save(film2);
+            FilmShowing filmShowing3 = new FilmShowing();
+            filmShowing3.setFilm(film2);
+            filmShowing3.setDate("11-10-2022");
+            filmShowing3.setTime("12.00");
+            filmShowing3.setPrice(80);
+            filmShowingRepository.save((filmShowing3));
+
+           // filmShowing2.setRoom(room1);
 
             roomRepository.save(room);
 
             filmShowing2.setRoom(room);
             filmShowingRepository.save(filmShowing2);
+
+
+           // room1.setFilmShowing(Arrays.asList(filmShowing2));
+            roomRepository.save(room1);
+
+
+            FilmShowing filmShowing4 = new FilmShowing();
+            filmShowing4.setFilm(film2);
+            filmShowing4.setDate("11-10-2022");
+            filmShowing4.setTime("12.00");
+            filmShowing4.setPrice(80);
+            filmShowingRepository.save((filmShowing4));
+
+            FilmShowing filmShowing5 = new FilmShowing();
+            filmShowing5.setFilm(film2);
+            filmShowing5.setDate("12-10-2022");
+            filmShowing5.setTime("12.00");
+            filmShowing5.setPrice(80);
+            filmShowingRepository.save((filmShowing5));
+
+            FilmShowing filmShowing6 = new FilmShowing();
+            filmShowing6.setFilm(film2);
+            filmShowing6.setDate("12-10-2022");
+            filmShowing6.setTime("15.00");
+            filmShowing6.setPrice(80);
+            filmShowingRepository.save((filmShowing6));
+
+
+
 
 
             Customer customer= new Customer();

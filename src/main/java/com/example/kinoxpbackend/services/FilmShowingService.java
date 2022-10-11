@@ -6,6 +6,7 @@ import com.example.kinoxpbackend.repositories.FilmRepository;
 import com.example.kinoxpbackend.repositories.FilmShowingRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,5 +38,8 @@ public class FilmShowingService {
         Film foundFilm = filmRepository.findById(filmId).get();
         filmShowing.setFilm(foundFilm);
         return filmShowingRepository.save(filmShowing);
+    }
+    public List<FilmShowing> findByDate(String date){
+        return (List<FilmShowing>) filmShowingRepository.findAllByDate(date);
     }
 }
