@@ -49,9 +49,6 @@ public class KinoXpBackendApplication {
 
             seat.setRow(row);
 
-            seatRepository.save(seat);
-
-            rowRepository.save(row);
 
 
 
@@ -107,7 +104,7 @@ public class KinoXpBackendApplication {
             filmShowing2.setDate("11-10-2022");
             filmShowing2.setTime("13.00");
             filmShowing2.setPrice(80);
-            filmShowing2.setRoom(new Room());
+            filmShowing2.setRoom(room1);
 
 
             filmRepository.save(film2);
@@ -120,9 +117,8 @@ public class KinoXpBackendApplication {
 
            // filmShowing2.setRoom(room1);
 
-            roomRepository.save(room);
 
-            filmShowing2.setRoom(room);
+
             filmShowingRepository.save(filmShowing2);
 
 
@@ -163,8 +159,7 @@ public class KinoXpBackendApplication {
             customer.setPhoneNumber("45454545");
             customerRepository.save(customer);
 
-            room.setFilmShowing(List.of(filmShowing2));
-            roomRepository.save(room);
+
 
 
             Booking booking = new Booking();

@@ -5,7 +5,6 @@ import com.example.kinoxpbackend.models.Booking;
 import com.example.kinoxpbackend.models.FilmShowing;
 import com.example.kinoxpbackend.repositories.BookingRepository;
 import com.example.kinoxpbackend.repositories.FilmShowingRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
