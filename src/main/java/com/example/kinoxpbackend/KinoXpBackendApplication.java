@@ -31,9 +31,7 @@ public class KinoXpBackendApplication {
                                          RowRepository rowRepository,
                                          SeatRepository seatRepository,
                                          BookingRepository bookingRepository
-
             ) {
-
         return (args) -> {
             Seat seat = new Seat();
             seat.setSeatNumber(10);
@@ -41,19 +39,12 @@ public class KinoXpBackendApplication {
             Room room1 = new Room();
             room1.setName("rum1");
 
-
             Row row = new Row();
             row.setName("A");
             row.setRoom(room1);
             row.setSeats(Arrays.asList(seat));
 
             seat.setRow(row);
-
-
-
-
-
-
 
             room1.setRows(Arrays.asList(row));
 
@@ -79,13 +70,6 @@ public class KinoXpBackendApplication {
             film2.setPoster("https://prod.cdn.bbaws.net/TDC_Blockbuster_-_Production/1016/604/FO-0371_po-reg-medium_orig.jpg");
             film2.setLengthInMinutes(160);
 
-
-
-
-
-
-
-
             filmRepository.save(film1);
             filmRepository.save(film2);
 
@@ -97,7 +81,6 @@ public class KinoXpBackendApplication {
             filmShowing.setFilm(film1);
             filmShowingRepository.save(filmShowing);
 
-
             filmRepository.save(film2);
             FilmShowing filmShowing2 = new FilmShowing();
             filmShowing2.setFilm(film2);
@@ -105,7 +88,6 @@ public class KinoXpBackendApplication {
             filmShowing2.setTime("13.00");
             filmShowing2.setPrice(80);
             filmShowing2.setRoom(room1);
-
 
             filmRepository.save(film2);
             FilmShowing filmShowing3 = new FilmShowing();
@@ -117,14 +99,10 @@ public class KinoXpBackendApplication {
 
            // filmShowing2.setRoom(room1);
 
-
-
             filmShowingRepository.save(filmShowing2);
-
 
            // room1.setFilmShowing(Arrays.asList(filmShowing2));
             roomRepository.save(room1);
-
 
             FilmShowing filmShowing4 = new FilmShowing();
             filmShowing4.setFilm(film2);
@@ -147,10 +125,6 @@ public class KinoXpBackendApplication {
             filmShowing6.setPrice(80);
             filmShowingRepository.save((filmShowing6));
 
-
-
-
-
             Customer customer= new Customer();
             customer.setFerstName("Renas");
             customer.setLastName("Ali");
@@ -158,34 +132,6 @@ public class KinoXpBackendApplication {
             customer.setBookings(null);
             customer.setPhoneNumber("45454545");
             customerRepository.save(customer);
-
-
-
-
-            Booking booking = new Booking();
-            booking.setFilmShowing(filmShowing2);
-            booking.setRoom(filmShowing2.getRoom());
-            List<Seat> seats = new ArrayList<>();
-            bookingRepository.save(booking);
-            booking.getRoom().getRows().forEach(r -> seats.addAll(row.getSeats()));
-            booking.setSeat(seats);
-            seats.forEach(s -> s.setBooking(booking));
-            seatRepository.saveAll(seats);
-            bookingRepository.save(booking);
-
-
-
-
-
-
-
-
-
-
-
-
-
         };
     }
-
 }

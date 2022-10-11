@@ -1,11 +1,11 @@
 package com.example.kinoxpbackend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.naming.Name;
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,14 +17,14 @@ import java.util.List;
 public class Booking {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "booking_id")
+        @Column(name = "BOOKING_ID")
         private Long bookingId;
 
         @Column(name = "LENGTH")
         private int length;
 
         @ManyToOne()
-        @JoinColumn(name = "film_showing_id", nullable = false)
+        @JoinColumn(name = "FILM_SHOWING_ID", nullable = false)
         private FilmShowing filmShowing;
 
         //tid
@@ -32,15 +32,19 @@ public class Booking {
         private String time;
         //seat
 
-        @OneToMany(mappedBy = "booking")
-        private List<Seat> seat;
+        @ManyToMany()
+        @JoinTable(name = "BOOKED_SEATS",
+        joinColumns = @JoinColumn(name = "BOOKING_ID"),
+        inverseJoinColumns = @JoinColumn(name = "SEAT_ID"))
+        private List<Seat> seats;
 
         @OneToOne
-        @JoinColumn(name = "room_id")
+        @JoinColumn(name = "ROOM_ID")
         private Room room;
 
+        @JsonBackReference
         @ManyToOne()
-        @JoinColumn(name = "customer_id")
+        @JoinColumn(name = "CUSTOMER_ID")
         private Customer customer;
 
 

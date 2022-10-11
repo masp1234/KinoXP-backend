@@ -25,11 +25,9 @@ public class Seat {
     @Column (name = "seatNumber", nullable = false)
     private int seatNumber;
 
-
-    @ManyToOne
-    @JsonBackReference(value = "booking")
-    @JoinColumn(name= "booking_id")
-    private Booking booking;
+    @ManyToMany(mappedBy = "seats")
+    @JsonBackReference(value = "bookings")
+    private List<Booking> bookings;
 
     @ManyToOne()
     @JoinColumn(name = "rows_id")

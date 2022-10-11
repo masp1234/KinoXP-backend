@@ -1,6 +1,5 @@
 package com.example.kinoxpbackend.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,7 +27,6 @@ public class Customer {
     @Column(name = "email")
     private String email;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 
