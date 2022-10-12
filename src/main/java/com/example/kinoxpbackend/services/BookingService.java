@@ -2,6 +2,7 @@ package com.example.kinoxpbackend.services;
 
 
 import com.example.kinoxpbackend.models.Booking;
+import com.example.kinoxpbackend.models.Customer;
 import com.example.kinoxpbackend.models.FilmShowing;
 import com.example.kinoxpbackend.models.Seat;
 import com.example.kinoxpbackend.repositories.BookingRepository;
@@ -21,17 +22,18 @@ public class BookingService {
 
     private SeatRepository seatRepository;
 
-    public BookingService(BookingRepository bookingRepository,
-                          FilmShowingRepository filmShowingRepository,
-                          SeatRepository seatRepository) {
+    private CustomerService customerService;
 
+    public BookingService(BookingRepository bookingRepository, FilmShowingRepository filmShowingRepository, SeatRepository seatRepository, CustomerService customerService) {
         this.bookingRepository = bookingRepository;
         this.filmShowingRepository = filmShowingRepository;
         this.seatRepository = seatRepository;
+        this.customerService = customerService;
     }
 
-    public Booking addBooking(Booking booking, Long filmShowingId, List<Long> seatIds) {
+    public Booking addBooking(Booking booking, Long filmShowingId, List<Long> seatIds, Long customerId) {
         FilmShowing filmShowing = filmShowingRepository.findById(filmShowingId).get();
+        Customer customer = customerService.findById(customerId);
 
         List<Seat> resservedSeat = new ArrayList<>();
 
@@ -41,7 +43,10 @@ public class BookingService {
 
         booking.setSeats(resservedSeat);
         booking.setFilmShowing(filmShowing);
-        return bookingRepository.save(booking);
+        customer.addBooking(booking);
+        customerService.addCustomer(customer);
+
+        return booking;
     }
 
     public Booking getBookingById(Long id) {
