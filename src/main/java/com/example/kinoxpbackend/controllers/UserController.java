@@ -21,6 +21,7 @@ UserService userService;
     @GetMapping("get/user/{username}")
     public User findUserByUsername(@PathVariable("username") String username){
         User user = userService.getUserByUsername(username);
+
         /*
         if(user == null){
             throw new RuntimeException("det virker ikke");
