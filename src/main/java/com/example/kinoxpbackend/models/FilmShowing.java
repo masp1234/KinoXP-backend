@@ -15,18 +15,18 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Table(name="FILMSHOWING")
+@Table(name="filmshowing")
 public class FilmShowing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "film_showing_id")
+    @Column(name = "filmshowing_id")
     private Long filmShowingId;
 
 
-    @Column(name = "film_showing_time")
+    @Column(name = "filmshowing_time")
     private String time;
 
-    @Column(name = "film_showing_date")
+    @Column(name = "filmshowing_date")
     private String date;
 
 

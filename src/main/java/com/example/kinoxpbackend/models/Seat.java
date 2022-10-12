@@ -14,14 +14,14 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "SEAT")
+@Table(name = "seat")
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="seat_id")
     int id;
 
-    @Column (name = "seatNumber", nullable = false)
+    @Column (name = "seat_number", nullable = false)
     private int seatNumber;
 
     @ManyToMany(mappedBy = "seats")
@@ -29,7 +29,7 @@ public class Seat {
     private List<Booking> bookings;
 
     @ManyToOne()
-    @JoinColumn(name = "rows_id")
+    @JoinColumn(name = "row_id")
     @JsonBackReference(value = "row")
     private Row row;
 

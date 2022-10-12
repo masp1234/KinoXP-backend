@@ -14,15 +14,15 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "rows")
+@Table(name = "\"row\"")
 public class Row {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rows_id")
+    @Column(name = "row_id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "row_name")
     private String name;
 
     @JsonBackReference
