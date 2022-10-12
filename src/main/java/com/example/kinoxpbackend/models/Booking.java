@@ -29,7 +29,7 @@ public class Booking {
         private String time;
         //seat
 
-        @ManyToMany()
+        @ManyToMany(cascade = CascadeType.ALL)
         @JoinTable(name = "booked_seats",
         joinColumns = @JoinColumn(name = "booking_id"),
         inverseJoinColumns = @JoinColumn(name = "seat_id"))

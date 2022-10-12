@@ -42,4 +42,7 @@ public class BookingController {
         return new ResponseEntity<>(bookingService.getAllBookings(), HttpStatus.OK);
     }
 
+
+
+
 }

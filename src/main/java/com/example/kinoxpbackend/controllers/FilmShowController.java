@@ -69,7 +69,8 @@ public class FilmShowController {
     public ResponseEntity<FilmShowing> update(@PathVariable("id") Long id,
                                               @Valid @RequestParam("LENGTH") int length,
                                               @RequestParam("film_id")Film film,
-                                              @RequestParam("ROOM") Room room, @RequestParam("PRICE") double price){
+                                              @RequestParam("ROOM") Room room,
+                                              @RequestParam("PRICE") double price){
         FilmShowing filmShowing = new FilmShowing();
         filmShowing.setFilm(film);
         //filmShowing.setLength(length);
