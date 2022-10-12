@@ -31,9 +31,9 @@ public class BookingService {
         this.customerService = customerService;
     }
 
-    public Booking addBooking(Booking booking, Long filmShowingId, List<Long> seatIds, Long customerId) {
+    public Booking addBooking(Booking booking, Long filmShowingId, List<Long> seatIds, String customerEmail) {
         FilmShowing filmShowing = filmShowingRepository.findById(filmShowingId).get();
-        Customer customer = customerService.findById(customerId);
+        Customer customer = customerService.getCustomerByEmail(customerEmail);
 
         List<Seat> resservedSeat = new ArrayList<>();
 

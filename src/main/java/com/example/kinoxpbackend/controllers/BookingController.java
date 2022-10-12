@@ -19,13 +19,13 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
-    @PostMapping("/add/{filmShowingId}/seats/{seatIds}/customer/{customerId}")
+    @PostMapping("/add/{filmShowingId}/seats/{seatIds}/customer/{customerEmail}")
     public ResponseEntity<Booking> addBooking(@RequestBody Booking booking,
                                               @PathVariable("filmShowingId") Long filmShowingId,
                                               @PathVariable("seatIds") List<Long> seatIds,
-                                              @PathVariable("customerId") Long customerId) {
+                                              @PathVariable("customerEmail") String customerEmail) {
 
-        return new ResponseEntity<>(bookingService.addBooking(booking, filmShowingId, seatIds, customerId), HttpStatus.OK);
+        return new ResponseEntity<>(bookingService.addBooking(booking, filmShowingId, seatIds, customerEmail), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
