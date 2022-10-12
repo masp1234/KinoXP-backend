@@ -66,7 +66,8 @@ public class FilmShowController {
 
 
     @PatchMapping("/oneFileShowing/{id}")
-    public ResponseEntity<FilmShowing> update(@PathVariable("id") Long id, @Valid @RequestParam("LENGTH") int length,
+    public ResponseEntity<FilmShowing> update(@PathVariable("id") Long id,
+                                              @Valid @RequestParam("LENGTH") int length,
                                               @RequestParam("film_id")Film film,
                                               @RequestParam("ROOM") Room room, @RequestParam("PRICE") double price){
         FilmShowing filmShowing = new FilmShowing();
