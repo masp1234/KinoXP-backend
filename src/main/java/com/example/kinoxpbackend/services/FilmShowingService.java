@@ -48,4 +48,18 @@ public class FilmShowingService {
     public List<FilmShowing> findByDate(String date){
         return (List<FilmShowing>) filmShowingRepository.findAllByDate(date);
     }
+
+    public FilmShowing updateFilmShowing(Long filmShowingId, String time, String date,
+                                         Film film, Long roomId, double price) {
+        FilmShowing filmShowing = filmShowingRepository.findById(filmShowingId).get();
+        Room room = roomRepository.findById(roomId).get();
+
+        filmShowing.setFilm(film);
+        filmShowing.setRoom(room);
+        filmShowing.setTime(time);
+        filmShowing.setDate(date);
+        filmShowing.setPrice(price);
+
+        return filmShowingRepository.save(filmShowing);
+    }
 }
