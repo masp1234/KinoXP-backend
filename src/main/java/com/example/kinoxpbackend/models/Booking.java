@@ -35,10 +35,6 @@ public class Booking {
         inverseJoinColumns = @JoinColumn(name = "seat_id"))
         private List<Seat> seats;
 
-        @OneToOne
-        @JoinColumn(name = "room_id")
-        private Room room;
-
         @JsonBackReference
         @ManyToOne()
         @JoinColumn(name = "customer_id")

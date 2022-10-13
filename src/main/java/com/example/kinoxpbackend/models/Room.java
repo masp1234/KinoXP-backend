@@ -31,10 +31,4 @@ public class Room {
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.PERSIST)
     private List<Row> rows;
-
-    @JsonBackReference(value = "booking")
-    @OneToOne(mappedBy = "room")
-    private Booking booking;
-
-
 }

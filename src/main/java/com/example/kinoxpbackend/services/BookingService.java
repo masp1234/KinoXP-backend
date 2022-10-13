@@ -35,18 +35,19 @@ public class BookingService {
         FilmShowing filmShowing = filmShowingRepository.findById(filmShowingId).get();
         Customer customer = customerService.getCustomerByEmail(customerEmail);
 
-        List<Seat> resservedSeat = new ArrayList<>();
+        List<Seat> reservedSeats = new ArrayList<>();
 
         for (Long seatid: seatIds) {
-            resservedSeat.add(seatRepository.findById(seatid).get());
+            reservedSeats.add(seatRepository.findById(seatid).get());
         }
 
-        booking.setSeats(resservedSeat);
+        booking.setSeats(reservedSeats);
         booking.setFilmShowing(filmShowing);
         customer.addBooking(booking);
+        booking.setCustomer(customer);
         customerService.addCustomer(customer);
 
-        return booking;
+        return bookingRepository.save(booking);
     }
 
     public Booking getBookingById(Long id) {
