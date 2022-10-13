@@ -65,15 +65,15 @@ public class FilmShowController {
     */
 
 
-    @PatchMapping("/updateFilmShowing/{id}/room/{roomId}")
-    public ResponseEntity<FilmShowing> update(@PathVariable("id") Long id,
+    @PatchMapping("/updateFilmShowing/{filmShowingId}/film/{filmId}/room/{roomId}")
+    public ResponseEntity<FilmShowing> update(@PathVariable("filmShowingId") Long filmShowingId,
+                                              @PathVariable("filmId") Long filmId,
+                                              @PathVariable("roomId") Long roomId,
                                               @Valid @RequestParam("time") String time,
                                               @RequestParam("date") String date,
-                                              @RequestBody()Film film,
-                                              @PathVariable("roomId") Long roomId,
                                               @RequestParam("price") double price){
 
-        FilmShowing filmShowing = filmShowingService.updateFilmShowing(id, time, date, film, roomId, price);
+        FilmShowing filmShowing = filmShowingService.updateFilmShowing(filmShowingId, time, date, filmId, roomId, price);
         return new ResponseEntity<>(filmShowing, HttpStatus.OK);
     }
     @PostMapping(value = "/addFilmShowing/{filmId}/room/{roomId}")

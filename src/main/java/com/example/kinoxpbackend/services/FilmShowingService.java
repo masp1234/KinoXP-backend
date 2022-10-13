@@ -50,10 +50,11 @@ public class FilmShowingService {
     }
 
     public FilmShowing updateFilmShowing(Long filmShowingId, String time, String date,
-                                         Film film, Long roomId, double price) {
+                                         Long filmId, Long roomId, double price) {
         FilmShowing filmShowing = filmShowingRepository.findById(filmShowingId).get();
         Room room = roomRepository.findById(roomId).get();
 
+        Film film = filmRepository.findById(filmId).get();
         filmShowing.setFilm(film);
         filmShowing.setRoom(room);
         filmShowing.setTime(time);
