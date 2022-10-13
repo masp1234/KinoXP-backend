@@ -62,10 +62,8 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
-    public Booking deleteBooking(Long id){
-        Booking booking= bookingRepository.findById(id).get();
-
+    public void deleteBooking(Long id){
          bookingRepository.deleteById(id);
-         return booking;
+
     }
 }
