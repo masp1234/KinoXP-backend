@@ -61,4 +61,11 @@ public class BookingService {
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
+
+    public Booking deleteBooking(Long id){
+        Booking booking= bookingRepository.findById(id).get();
+
+         bookingRepository.deleteById(id);
+         return booking;
+    }
 }
